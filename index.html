@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мосваг — Ремонт и обслуживание VAG и BMW в Москве</title>
+    <style>
+        /* Сброс и базовые стили */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #ffffff;
+            background-color: #0f1115;
+            line-height: 1.5;
+        }
+
+        /* Фоновое изображение с мягким затемнением для читаемости текста */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #252a32;
+            background-image:
+                linear-gradient(to bottom, rgba(8, 12, 18, 0.72) 0%, rgba(8, 12, 18, 0.44) 42%, rgba(8, 12, 18, 0.9) 100%),
+                linear-gradient(to right, rgba(8, 12, 18, 0.34) 0%, rgba(8, 12, 18, 0.2) 48%, rgba(8, 12, 18, 0.06) 100%),
+                radial-gradient(ellipse at 52% 40%, rgba(34, 78, 112, 0.12) 0%, rgba(8, 12, 18, 0.3) 46%, rgba(8, 12, 18, 0.52) 100%),
+                url('vag-bg.jpg'),
+                url('garage-bg.svg');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+/* Убираем отдельный оверлей — он теперь встроен в background */
+.hero-overlay {
+    display: none;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 100svh;
+        background-image:
+            linear-gradient(to bottom, rgba(8, 12, 18, 0.68) 0%, rgba(8, 12, 18, 0.38) 38%, rgba(8, 12, 18, 0.9) 100%),
+            linear-gradient(to right, rgba(8, 12, 18, 0.3) 0%, rgba(8, 12, 18, 0.16) 70%, rgba(8, 12, 18, 0.05) 100%),
+            radial-gradient(ellipse at 50% 34%, rgba(34, 78, 112, 0.1) 0%, rgba(8, 12, 18, 0.28) 44%, rgba(8, 12, 18, 0.54) 100%),
+            url('vag-bg.jpg'),
+            url('garage-bg.svg');
+        background-position: center 35%;
+    }
+}
+
+        /* Контейнер для ограничения ширины */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Шапка */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+        .logo {
+            width: 260px;
+            height: auto;
+            max-width: 100%;
+        }
+        
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .phone {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .phone:hover { color: #3b82f6; }
+        
+        .btn-outline {
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Основной контент Hero */
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+            max-width: 700px;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.58);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #3b82f6;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-primary:active { transform: scale(0.98); }
+
+        /* Полоса доверия */
+        .trust-badges {
+            display: flex;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #e2e8f0;
+        }
+        .trust-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .logo { width: 180px; }
+            .header { flex-direction: column; gap: 16px; align-items: flex-start; }
+            .header-contacts { width: 100%; justify-content: space-between; }
+            .trust-badges { flex-direction: column; gap: 20px; }
+            .hero-buttons { flex-direction: column; }
+            .btn-primary, .btn-outline { text-align: center; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <!-- Шапка -->
+            <header class="header">
+                <img src="logovag-r.svg" alt="МОСВАГ Автосервис" class="logo">
+                <div class="header-contacts">
+                    <a href="tel:+74957888345" class="phone">+7 (495) 788-83-45</a>
+                    <a href="#callback" class="btn-outline">Заказать звонок</a>
+                </div>
+            </header>
+
+            <!-- Главный контент -->
+            <div class="hero-content">
+                <div class="badge">АВТОТЕХЦЕНТР В ГОЛОВИНСКОМ РАЙОНЕ</div>
+                <h1>Профессиональный ремонт и обслуживание VAG и BMW</h1>
+                <p class="hero-subtitle">
+                    Диагностика, ТО и сложный агрегатный ремонт с гарантией. 
+                    Собственный склад запчастей. Работаем с 2006 года.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#form" class="btn-primary">Записаться на сервис</a>
+                    <a href="https://yandex.ru/maps/-/CLv5mM~J" target="_blank" class="btn-outline" style="display: flex; align-items: center; gap: 8px;">
+                        📍 Кронштадтский б-р, 35Б
+                    </a>
+                </div>
+
+                <!-- Полоса доверия -->
+                <div class="trust-badges">
+                    <div class="trust-item">
+                        <div class="trust-icon">🚇</div>
+                        <div>5 мин. от м.<br>Водный стадион</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">🛡️</div>
+                        <div>Гарантия на все<br>виды работ 1 год</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">⚙️</div>
+                        <div>Оригинальные детали<br>и проверенные аналоги</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
