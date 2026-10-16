@@ -208,19 +208,6 @@
             max-width: 700px;
             text-shadow: 0 2px 18px rgba(0, 0, 0, 0.58);
         }
-        .badge {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 24px;
-            width: fit-content;
-        }
         h1 {
             font-size: 56px;
             font-weight: 800;
@@ -228,6 +215,24 @@
             margin-bottom: 24px;
             letter-spacing: -1px;
         }
+        .hero-brand-logos {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 18px;
+        }
+        .hero-title-logo {
+            width: 86px;
+            height: 86px;
+            padding: 4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            opacity: 1;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+            transition: opacity 0.3s;
+        }
+        .hero-title-logo:hover { opacity: 1; }
+        .hero-title-logo--white { background: transparent; }
         .hero-subtitle {
             font-size: 18px;
             color: #cbd5e1;
@@ -284,6 +289,11 @@
         /* Адаптивность для мобильных */
         @media (max-width: 768px) {
             h1 { font-size: 36px; }
+            .hero-brand-logos { gap: 20px; }
+            .hero-title-logo {
+                width: 72px;
+                height: 72px;
+            }
             .logo { width: 180px; }
             .header { flex-direction: column; gap: 16px; align-items: flex-start; }
             .header-contacts { width: 100%; justify-content: space-between; }
@@ -310,7 +320,10 @@
 
             <!-- Главный контент -->
             <div class="hero-content">
-                <div class="badge">АВТОТЕХЦЕНТР В ГОЛОВИНСКОМ РАЙОНЕ</div>
+                <div class="hero-brand-logos" aria-label="Обслуживаем автомобили Volkswagen и BMW">
+                    <img src="volkswagen-white.svg" alt="Volkswagen" class="hero-title-logo hero-title-logo--white">
+                    <img src="bmw-logo-ok.svg" alt="BMW" class="hero-title-logo">
+                </div>
                 <h1>Профессиональный ремонт и обслуживание VAG и BMW</h1>
                 <p class="hero-subtitle">
                     Диагностика, ТО и сложный агрегатный ремонт с гарантией. 
